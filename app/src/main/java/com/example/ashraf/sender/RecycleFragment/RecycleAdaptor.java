@@ -22,8 +22,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by ashraf on 11/1/2016.
  */
 
-public class RecycleAdaptor
-        extends RecyclerView.Adapter<RecycleAdaptor.ItemViewHolder> {
+public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ItemViewHolder> {
     public List<ChatMessage> chatMessageList;
     Context context;
     View v;

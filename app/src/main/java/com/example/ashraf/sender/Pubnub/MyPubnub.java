@@ -24,19 +24,20 @@ import Model.PublishedLocation;
  * Created by ashraf on 11/16/2016.
  */
 
-public class MyPubnub {
+public class MyPubnub implements PubnubPresenter {
     PubNub pubnub;
     MainActivity mainActivity;
 
     public MyPubnub(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
-    public void set_config() {
+
+    @Override
+    public void set_Config() {
         PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-8631c4d0-aaa7-11e6-be20-0619f8945a4f");
         pnConfiguration.setPublishKey("pub-c-5cfe59a8-2468-4ed2-97b1-ece51855c8bd");
         pnConfiguration.setSecure(false);
-
         pubnub = new PubNub(pnConfiguration);
     }
 
@@ -46,33 +47,36 @@ public class MyPubnub {
                 .execute();
     }
 
-    public void publish(PublishedLocation location) {
-        List<String> list = new ArrayList<>();
-        list.add(location.getOperation());
-        list.add(location.getLatitude());
-        list.add(location.getLongitude());
+    @Override
+    public void publishLocation (PublishedLocation location) {
 
-        Log.d("SEQUENCE", "start publish");
-        pubnub.publish()
-                .message(list)
-                .channel("my_channel")
-                .shouldStore(true)
-                .usePOST(true)
-                .async(new PNCallback<PNPublishResult>() {
-                    @Override
-                    public void onResponse(PNPublishResult result, PNStatus status) {
-                        if (status.isError()) {
-                            // something bad happened.
-                            Log.d("ML", "error happened while publishing: " + status.toString() + "\n" + String.valueOf(result));
-                        } else {
-                            Log.d("ML", "publish worked! timetoken: " + result.getTimetoken());
-                            Log.d("SEQUENCE", " published ");
+            List<String> list = new ArrayList<>();
+            list.add(location.getOperation());
+            list.add(location.getLatitude());
+            list.add(location.getLongitude());
+
+            Log.d("SEQUENCE", "start publish");
+            pubnub.publish()
+                    .message(list)
+                    .channel("my_channel")
+                    .shouldStore(true)
+                    .usePOST(true)
+                    .async(new PNCallback<PNPublishResult>() {
+                        @Override
+                        public void onResponse(PNPublishResult result, PNStatus status) {
+                            if (status.isError()) {
+                                // something bad happened.
+                                Log.d("ML", "error happened while publishing: " + status.toString() + "\n" + String.valueOf(result));
+                            } else {
+                                Log.d("ML", "publish worked! timetoken: " + result.getTimetoken());
+                                Log.d("SEQUENCE", " published ");
+                            }
                         }
-                    }
-                });
+                    });
     }
 
-    public void publish_message(ChatMessage chatMessage) {
+    @Override
+    public void publishMessage(ChatMessage chatMessage) {
         List<String> list = new ArrayList<>();
         list.add("1");
         list.add(chatMessage.getPhotoUrl());
@@ -100,7 +104,8 @@ public class MyPubnub {
                 });
     }
 
-    public void set_listioner() {
+    @Override
+    public void setListioner() {
 
         pubnub.addListener(new SubscribeCallback() {
             @Override
@@ -124,7 +129,7 @@ public class MyPubnub {
                 if (jsonNode != null) {
 
 
-                    mainActivity.display(jsonNode.toString());
+                    mainActivity.mainActivityPresenter.displayListionerResult(jsonNode.toString());
 
                     Log.d("ML message", jsonNode.toString() + " " + String.valueOf(message.getTimetoken()));
 
@@ -140,9 +145,8 @@ public class MyPubnub {
             }
         });
         pubnub.subscribe().channels(Arrays.asList("my_channel"));
-
-
     }
+
     public void unsubscribe() {
         pubnub.unsubscribe()
                 .channels(Arrays.asList("my_channel"))
