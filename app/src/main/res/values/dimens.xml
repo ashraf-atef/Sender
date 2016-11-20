@@ -1,0 +1,37 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="rv_row_margin">3dp</dimen>
+
+
+    <dimen name="pad_1dp">1.0dip</dimen>
+    <dimen name="pad_3dp">3.0dip</dimen>
+    <dimen name="pad_5dp">5.0dip</dimen>
+    <dimen name="pad_10dp">10.0dip</dimen>
+    <dimen name="pad_15dp">15.0dip</dimen>
+    <dimen name="pad_20dp">20.0dip</dimen>
+    <dimen name="pad_30dp">30.0dip</dimen>
+    <dimen name="pad_125dp">125.0dip</dimen>
+    <dimen name="txt_7sp">7.0sp</dimen>
+    <dimen name="txt_12sp">12.0sp</dimen>
+    <dimen name="txt_13sp">13.0sp</dimen>
+    <dimen name="txt_14sp">14.0sp</dimen>
+    <dimen name="txt_15sp">15.0sp</dimen>
+    <dimen name="txt_16sp">16.0sp</dimen>
+    <dimen name="txt_18sp">18.0sp</dimen>
+    <dimen name="txt_20sp">20.0sp</dimen>
+    <dimen name="txt_25sp">25.0sp</dimen>
+    <dimen name="divider">1dip</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. in tab layout try -->
+
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_padding_bottom">16dp</dimen>
+    <dimen name="tab_label">14sp</dimen>
+    <dimen name="custom_tab_layout_height">72dp</dimen>
+</resources>

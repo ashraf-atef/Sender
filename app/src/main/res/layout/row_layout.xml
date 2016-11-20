@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    app:cardCornerRadius="@dimen/activity_vertical_margin"
+    app:cardElevation="@dimen/rv_row_margin"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="15dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+
+            android:id="@+id/senderPhotocirleImageview"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile"
+            app:border_color="#FF000000" />
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/photoTypeCirleImageview"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignBottom="@+id/senderPhotocirleImageview"
+            android:layout_alignEnd="@+id/senderPhotocirleImageview"
+            android:layout_alignRight="@+id/senderPhotocirleImageview"
+            android:layout_marginBottom="9dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/member"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:border_color="#FF000000" />
+
+    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/pad_5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/senderNameTextview"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Adriano cafe"
+                    android:textColor="@color/PrimaryColor"
+                    android:textSize="17dp"
+                    android:layout_marginRight="2dp"/>
+
+
+                <TextView
+                    android:id="@+id/dateTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="right"
+                    android:paddingBottom="4dp"
+                    android:text="jan 17,2016"
+                    android:textColor="#2196F3"
+                    android:textSize="13dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/contentTextview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="@dimen/pad_5dp"
+                android:text="Dlw2ty ana lama bsgl 3amel syana w msagl en m3ad syanto bokra masln w geh bokra leh msh bykon gybhole zy eltrkebat kda en ykon maktob 1syana la lazm ana ad5ol w a3ml search 3aleh 3shan ala2eh mawgod bl lon el bort2ane Dlw2ty ana lama bsgl 3amel syana w msagl en m3ad syanto bokra masln w geh bokra leh msh bykon gybhole zy eltrkebat kda en ykon maktob 1syana la lazm ana ad5ol w a3ml search 3aleh 3shan ala2eh mawgod bl lon el bort2ane "
+                android:textColor="@color/side_menu_divider"
+                android:textSize="@dimen/txt_14sp" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
+
+
+

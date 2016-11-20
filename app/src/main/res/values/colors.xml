@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#bf0000</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="PrimaryColor">#ffec384d</color>
+    <color name="side_menu_divider">#ff999999</color>
+
+    <color name="transparentBlack">#a0000000</color>
+    <color name="white">#fcf7f7</color>
+    <color name="black">#333</color>
+</resources>
