@@ -1,16 +1,13 @@
-package com.example.ashraf.sender;
+package com.example.ashraf.sender.MapsFragment;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.ashraf.sender.R;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
-
-import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

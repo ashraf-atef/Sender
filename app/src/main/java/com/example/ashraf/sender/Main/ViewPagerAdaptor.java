@@ -1,4 +1,4 @@
-package com.example.ashraf.sender;
+package com.example.ashraf.sender.Main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;

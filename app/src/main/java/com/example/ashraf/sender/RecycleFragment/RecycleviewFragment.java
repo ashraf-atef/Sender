@@ -1,4 +1,4 @@
-package com.example.ashraf.sender;
+package com.example.ashraf.sender.RecycleFragment;
 
 
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ashraf.sender.R;
+import com.example.ashraf.sender.RecycleFragment.RecycleAdaptor;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +19,7 @@ import android.view.ViewGroup;
 public class RecycleviewFragment extends Fragment {
 
 
-    RecycleAdaptor recycleAdaptor;
+   public RecycleAdaptor recycleAdaptor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

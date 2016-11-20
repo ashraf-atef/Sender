@@ -1,4 +1,4 @@
-package com.example.ashraf.sender;
+package com.example.ashraf.sender.RecycleFragment;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.ashraf.sender.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecycleAdaptor
         extends RecyclerView.Adapter<RecycleAdaptor.ItemViewHolder> {
-    List<ChatMessage> chatMessageList;
+    public List<ChatMessage> chatMessageList;
     Context context;
     View v;
 

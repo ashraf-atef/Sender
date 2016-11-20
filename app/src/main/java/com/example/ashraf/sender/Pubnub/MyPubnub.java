@@ -1,19 +1,17 @@
-package com.example.ashraf.sender;
+package com.example.ashraf.sender.Pubnub;
 
 import android.util.Log;
 
+import com.example.ashraf.sender.Main.MainActivity;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pubnub.api.PNConfiguration;
 import com.pubnub.api.PubNub;
 import com.pubnub.api.callbacks.PNCallback;
 import com.pubnub.api.callbacks.SubscribeCallback;
-import com.pubnub.api.enums.PNStatusCategory;
 import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;

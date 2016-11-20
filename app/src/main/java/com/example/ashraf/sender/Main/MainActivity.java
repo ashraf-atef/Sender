@@ -1,7 +1,6 @@
-package com.example.ashraf.sender;
+package com.example.ashraf.sender.Main;
 
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -10,11 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
+import com.example.ashraf.sender.MapsFragment.MapsFragment;
+import com.example.ashraf.sender.Pubnub.MyPubnub;
+import com.example.ashraf.sender.R;
+import com.example.ashraf.sender.RecycleFragment.RecycleviewFragment;
 
 import java.util.Date;
 
@@ -108,9 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     RecycleviewFragment recycleviewFragment;
+    MapsFragment mapsFragment ;
 
     private void setupViewPager(ViewPager viewPager) {
-        MapsFragment mapsFragment = new MapsFragment();
+         mapsFragment = new MapsFragment();
         mapsFragment.setMyPubnub(myPubnub);
         recycleviewFragment = new RecycleviewFragment();
         ViewPagerAdaptor adapter = new ViewPagerAdaptor(getSupportFragmentManager());
@@ -134,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 myPubnub.publish_message(chatMessage);
 //                recycleviewFragment.recycleAdaptor.chatMessageList.add(chatMessage);
 //                recycleviewFragment.recycleAdaptor.notifyDataSetChanged();
+                messageEdittext.setText("");
                 Toast.makeText(getBaseContext(), "Message Pushed", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -146,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (text != null && text.trim().length() > 0) {
 
-                    Toast.makeText(getBaseContext(), "Received", Toast.LENGTH_LONG).show();
+
                     String[] arr = text.replace("\"", "").replaceAll("\\[", "").replaceAll("\\]", "").split(",");
                     if (arr != null) {
 
@@ -178,8 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (requestCode == 1) {
 
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                // start to find location...
+                mapsFragment.init_companents();
 
             } else { // if permission is not granted
 
