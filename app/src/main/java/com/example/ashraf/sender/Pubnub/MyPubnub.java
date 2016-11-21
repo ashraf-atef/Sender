@@ -48,31 +48,31 @@ public class MyPubnub implements PubnubPresenter {
     }
 
     @Override
-    public void publishLocation (PublishedLocation location) {
+    public void publishLocation(PublishedLocation location) {
 
-            List<String> list = new ArrayList<>();
-            list.add(location.getOperation());
-            list.add(location.getLatitude());
-            list.add(location.getLongitude());
+        List<String> list = new ArrayList<>();
+        list.add(location.getOperation());
+        list.add(location.getLatitude());
+        list.add(location.getLongitude());
 
-            Log.d("SEQUENCE", "start publish");
-            pubnub.publish()
-                    .message(list)
-                    .channel("my_channel")
-                    .shouldStore(true)
-                    .usePOST(true)
-                    .async(new PNCallback<PNPublishResult>() {
-                        @Override
-                        public void onResponse(PNPublishResult result, PNStatus status) {
-                            if (status.isError()) {
-                                // something bad happened.
-                                Log.d("ML", "error happened while publishing: " + status.toString() + "\n" + String.valueOf(result));
-                            } else {
-                                Log.d("ML", "publish worked! timetoken: " + result.getTimetoken());
-                                Log.d("SEQUENCE", " published ");
-                            }
+        Log.d("SEQUENCE", "start publish");
+        pubnub.publish()
+                .message(list)
+                .channel("my_channel")
+                .shouldStore(true)
+                .usePOST(true)
+                .async(new PNCallback<PNPublishResult>() {
+                    @Override
+                    public void onResponse(PNPublishResult result, PNStatus status) {
+                        if (status.isError()) {
+                            // something bad happened.
+                            Log.d("ML", "error happened while publishing: " + status.toString() + "\n" + String.valueOf(result));
+                        } else {
+                            Log.d("ML", "publish worked! timetoken: " + result.getTimetoken());
+                            Log.d("SEQUENCE", " published ");
                         }
-                    });
+                    }
+                });
     }
 
     @Override
@@ -106,7 +106,6 @@ public class MyPubnub implements PubnubPresenter {
 
     @Override
     public void setListioner() {
-
         pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
@@ -146,6 +145,7 @@ public class MyPubnub implements PubnubPresenter {
         });
         pubnub.subscribe().channels(Arrays.asList("my_channel"));
     }
+
 
     public void unsubscribe() {
         pubnub.unsubscribe()

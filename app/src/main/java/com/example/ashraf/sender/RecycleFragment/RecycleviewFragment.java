@@ -19,15 +19,18 @@ import com.example.ashraf.sender.RecycleFragment.RecycleAdaptor;
 public class RecycleviewFragment extends Fragment {
 
 
-   public RecycleAdaptor recycleAdaptor;
+    public RecycleAdaptor recycleAdaptor;
+    public RecyclerView recyclerView;
+    public LinearLayoutManager llm;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_recycleview, container, false);
-        RecyclerView recyclerView = (RecyclerView) rootview.findViewById(R.id.recycle);
+        recyclerView = (RecyclerView) rootview.findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        llm = new LinearLayoutManager(getContext());
+        llm.setStackFromEnd(true);
         recyclerView.setLayoutManager(llm);
         recycleAdaptor = new RecycleAdaptor(getContext());
         recyclerView.setAdapter(recycleAdaptor);

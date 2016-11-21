@@ -119,7 +119,7 @@ public class MapsFragmentPresenterImpl implements MapsFragmentPresenter{
             // Zoom in the Google Map
             mapsFragment.mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16.0f));
 
-            mapsFragment.mMap.setInfoWindowAdapter(new MyInfoWindowAdapter(mapsFragment.getActivity()));
+//            mapsFragment.mMap.setInfoWindowAdapter(new MyInfoWindowAdapter(mapsFragment.getActivity()));
             mapsFragment.mMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
                 @Override
                 public void onCameraChange(CameraPosition cameraPosition) {
@@ -132,7 +132,6 @@ public class MapsFragmentPresenterImpl implements MapsFragmentPresenter{
                         publishedLocation.setLongitude(String.valueOf(mapsFragment.myLocation.getLongitude()));
                         mapsFragment.myPubnub.publishLocation(publishedLocation);
                         Toast.makeText(mapsFragment.getContext(), "Zoom out detected and Location Pushed", Toast.LENGTH_SHORT).show();
-
                     }
                     mapsFragment.currentZoom = cameraPosition.zoom;
                 }

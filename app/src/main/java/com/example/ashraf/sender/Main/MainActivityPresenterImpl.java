@@ -111,6 +111,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
                     String[] arr = text.replace("\"", "").replaceAll("\\[", "").replaceAll("\\]", "").split(",");
                     if (arr != null) {
 
+
                         if (arr[0].equals("1")) {
                             if (arr.length == 6) {
                                 Toast.makeText(mainActivity.getBaseContext(), "Message Received", Toast.LENGTH_SHORT).show();
@@ -122,6 +123,23 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
                                 chatMessage.setContent(arr[5]);
                                 mainActivity.recycleviewFragment.recycleAdaptor.chatMessageList.add(chatMessage);
                                 mainActivity.recycleviewFragment.recycleAdaptor.notifyDataSetChanged();
+
+                                if ("Sender".equals(chatMessage.getNameSender())) {
+                                    mainActivity.recycleviewFragment.recyclerView.scrollToPosition(
+                                            mainActivity.recycleviewFragment.recycleAdaptor.getItemCount() - 1
+                                    );
+                                }
+                                else
+                                {
+
+                                    if (mainActivity.recycleviewFragment.llm.findLastVisibleItemPosition()==
+                                            mainActivity.recycleviewFragment.recycleAdaptor.getItemCount()-2)
+                                    {
+                                        mainActivity.recycleviewFragment.recyclerView.scrollToPosition(
+                                                mainActivity.recycleviewFragment.recycleAdaptor.getItemCount() - 1
+                                        );
+                                    }
+                                }
 
                             }
                         }
